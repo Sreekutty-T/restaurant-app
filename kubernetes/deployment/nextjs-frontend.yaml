@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restaurant-deployment-frontend
+  labels:
+    app: restaurant-deployment-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: restaurant-deployment-frontend
+  template:
+    metadata:
+      labels:
+        app: restaurant-deployment-frontend
+    spec:
+      containers:
+      - name: restaurant-deployment-frontend
+        image: restaurantcs.azurecr.io/nextjs-frontend:3.0.0
+        ports:
+        - containerPort: 3000

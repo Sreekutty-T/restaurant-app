@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nextjs-frontend
+spec:
+  selector:
+    app: restaurant-deployment-frontend
+  ports:
+    - protocol: TCP
+      port: 80        
+      targetPort: 3000 
+  type: LoadBalancer    

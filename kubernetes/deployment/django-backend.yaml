@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restaurant-deployment-backend
+  labels:
+    app: restaurant-deployment-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: restaurant-deployment-backend
+  template:
+    metadata:
+      labels:
+        app: restaurant-deployment-backend
+    spec:
+      containers:
+      - name: restaurant-deployment-backend
+        image: restaurantcs.azurecr.io/django-backend:3.0.0
+        ports:
+        - containerPort: 8000
